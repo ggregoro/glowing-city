@@ -1,0 +1,41 @@
+# Glowing City — an Omarchy theme.
+# Built from four versions of the same wallpaper: night (green), dawn
+# (gold), day (blue) and sunset (red). The base is a neutral near-black
+# so all four skies sit on it; the accent is the amber of the lit windows
+# that appear in every one. Each ANSI hue is sampled from one of the four.
+
+mode = "dark"
+
+accent = "#E9B44C"
+selection = "#2A2620"
+muted = "#4A4438"
+
+background = "#0F0F12"
+dark_background = "#0B0B0E"
+darker_background = "#08080A"
+lighter_background = "#1A1A1F"
+
+foreground = "#E8E2D4"
+dark_foreground = "#8A8475"
+light_foreground = "#C9C2B2"
+bright_foreground = "#F6F1E6"
+
+# Window border: dawn amber into sunset red.
+hyprland_active_border = "rgba(e9b44cee) rgba(d76851ee) 45deg"
+
+# --- ANSI palette, each hue taken from one of the four wallpapers ---
+red = "#D76851"      # sunset
+yellow = "#CA9437"   # dawn
+orange = "#E07A3A"   # sunset glow
+green = "#5BA160"    # night
+cyan = "#5FB5A2"     # day highlights
+blue = "#4B95C9"     # day
+magenta = "#A57FBF"  # dawn's violet shadows
+brown = "#9A6C24"    # dawn mid-tones
+
+bright_red = "#EA8B71"
+bright_yellow = "#F4E0A6"
+bright_green = "#8DC672"
+bright_cyan = "#78C5AD"
+bright_blue = "#7FB4E0"
+bright_magenta = "#C7A6DB"
