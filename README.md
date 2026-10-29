@@ -50,6 +50,48 @@ at night (the default when you switch to the theme):
 
 Cycle them with `Super+Ctrl+Space` or `omarchy theme bg next`.
 
+## Wallpaper by time of day (optional)
+
+The `time-of-day/` folder switches the wallpaper by itself, so the city
+follows the real day:
+
+| From  | Wallpaper |
+|-------|-----------|
+| 06:00 | Dawn      |
+| 12:00 | Day       |
+| 18:00 | Sunset    |
+| 00:00 | Night     |
+
+A systemd user timer runs at those four times, and two Omarchy hooks run
+it when you switch to the theme and when you log in, so the right sky is
+up at once. If the laptop was asleep or off at a switch time, the timer
+catches up when it comes back. It does nothing while another theme is
+active, and `Super+Ctrl+Space` still works: a hand-picked wallpaper stays
+until the next switch time.
+
+Set it up after installing the theme:
+
+```bash
+cd ~/.config/omarchy/themes/glowing-city/time-of-day
+install -Dm755 glowing-city-time ~/.local/bin/glowing-city-time
+install -Dm644 -t ~/.config/systemd/user glowing-city-time.service glowing-city-time.timer
+omarchy hook install theme-set hook-glowing-city-time
+omarchy hook install post-boot hook-glowing-city-time
+systemctl --user daemon-reload
+systemctl --user enable --now glowing-city-time.timer
+glowing-city-time
+```
+
+To change the times, edit the hours in `~/.local/bin/glowing-city-time`
+and the `OnCalendar` line in `~/.config/systemd/user/glowing-city-time.timer`,
+then run `systemctl --user daemon-reload`.
+
+To turn it off:
+
+```bash
+systemctl --user disable --now glowing-city-time.timer
+```
+
 ## Install
 
 ```bash

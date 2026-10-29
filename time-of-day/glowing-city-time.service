@@ -1,0 +1,6 @@
+[Unit]
+Description=Glowing City wallpaper for the time of day
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/glowing-city-time

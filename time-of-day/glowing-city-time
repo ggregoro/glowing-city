@@ -1,0 +1,20 @@
+#!/bin/bash
+# Set the Glowing City wallpaper that matches the time of day.
+# 06-12 dawn, 12-18 day (blue), 18-24 sunset, 00-06 night (green).
+# Does nothing unless Glowing City is the current theme.
+
+THEME_NAME=$(cat "$HOME/.local/state/omarchy/current/theme.name" 2>/dev/null)
+[[ $THEME_NAME == glowing-city ]] || exit 0
+
+HOUR=$((10#$(date +%H)))
+if (( HOUR < 6 )); then IMAGE=1-glowing-city-night.jpg
+elif (( HOUR < 12 )); then IMAGE=2-glowing-city-dawn.jpg
+elif (( HOUR < 18 )); then IMAGE=3-glowing-city-day.jpg
+else IMAGE=4-glowing-city-sunset.jpg
+fi
+
+BACKGROUND="$HOME/.local/state/omarchy/current/theme/backgrounds/$IMAGE"
+[[ -f $BACKGROUND ]] || exit 0
+[[ $(readlink -f "$HOME/.local/state/omarchy/current/background") == "$(realpath "$BACKGROUND")" ]] && exit 0
+
+omarchy-theme-bg-set "$BACKGROUND"

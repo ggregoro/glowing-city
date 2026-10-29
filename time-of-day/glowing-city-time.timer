@@ -1,0 +1,10 @@
+[Unit]
+Description=Switch the Glowing City wallpaper at 00, 06, 12 and 18
+
+[Timer]
+OnCalendar=*-*-* 00,06,12,18:00:00
+Persistent=true
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

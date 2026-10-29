@@ -1,0 +1,3 @@
+#!/bin/bash
+# Pick the Glowing City wallpaper for the time of day
+"$HOME/.local/bin/glowing-city-time"
