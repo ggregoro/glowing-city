@@ -5,7 +5,7 @@ four lights: **night** (green), **dawn** (gold), **day** (blue) and
 **sunset** (red). A neutral near-black base, warm lamplight text, and an
 **amber accent** taken from the lit windows that glow in every one of them.
 
-![Glowing City — the night wallpaper](preview.png)
+![Glowing City — the theme's colors.toml in Neovim and the repo in the terminal, over the night wallpaper](screenshot.webp)
 
 ## The idea
 
